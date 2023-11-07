@@ -1,11 +1,12 @@
 <template>
-  <span>Prueba jdkjskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjsdnnnnnnnnnnnncksiijqwhdwhdhuahkuejbdkjbkjhcjabk</span>
+  <span>Prueba</span>
 </template>
 
 <script setup>
+
 </script>
 
-<style scoped>
+<style>
 body {
   background-color: #82C3C7;
 }
