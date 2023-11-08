@@ -1,9 +1,11 @@
 <template>
-  <formulario_login></formulario_login>
+  <!-- <formulario_login></formulario_login> -->
+  <formulario_singup></formulario_singup>
 </template>
 
 <script setup>
 import formulario_login from './components/formulario_login.vue';
+import formulario_singup from './components/formulario_singup.vue';
 
 </script>
 
