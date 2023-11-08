@@ -4,7 +4,14 @@
         + :value="variablePadre" es el parametro que se pasa a traves del padre. En este se caso el padre va a pasar una variable en la cual se guardara el dato que el usuario escribe en el campo de entrada.
         + @input esta accion se realiza cuando el usuario escribe en el campo de entrada y cuando sucede esto se ejecuta la función "updateValue".
     -->
-    <input :id="id" :type="type" :placeholder="hint" :value="variablePadre" @input="updateValue" />
+    <input v-if="type !== 'select'" :id="id" :type="type" :placeholder="hint" :value="variablePadre" @input="updateValue" />
+    <!-- Cuando el input sea de tipo 'select' -->
+    <select v-else :id="id" :value="variablePadre" @change="updateValue">
+      <option value="" disabled selected>{{ hint }}</option>
+      <option value="masculino">Masculino</option>
+      <option value="femenino">Femenino</option>
+      <option value="lgtbiq+">LGTBIQ+</option>
+    </select>
   </div>
 </template>
 
@@ -31,22 +38,21 @@ const updateValue = (event) => {
 </script>
 
 <style scoped>
+
 div {
   margin-top: 5%;
 }
-input {
+input, select {
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
   background-color: white;
   border: 1.5px solid black;
-  border-radius: 20px;
+  border-radius: 15px;
   padding-left: 5%;
   height: 8vh;
   width: 50vw;
 }
 
-input::placeholder {
-  font-family: 'Abel', sans-serif;
-  font-size: 20px;
-}
 </style>
 
 <!-- <template>
