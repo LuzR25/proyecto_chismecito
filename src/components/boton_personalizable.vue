@@ -24,10 +24,13 @@
   
   <style scoped>
   button {
+    margin-top: 5%;
+    font-family: 'Abel', sans-serif;
+    font-size: 20px;
     border: 1px solid black;
-    border-radius: 20px;
-    padding: 1%;
-    width: 40vw;
+    border-radius: 50px;
+    height: 7vh;
+    width: 25vw;
   }
   </style>
   

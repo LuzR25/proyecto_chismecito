@@ -1,3 +1,18 @@
+<template>
+  <formulario_login></formulario_login>
+</template>
+
+<script setup>
+import formulario_login from './components/formulario_login.vue';
+
+</script>
+
+<style setup>
+body {
+    background-color: #82C3C7;
+  }
+</style>
+
 <!-- <template>
   <boton_personalizable texto="INGRESAR" color="#EBCE7D" :accion="miFuncion" />
 </template>
@@ -11,8 +26,8 @@ const miFuncion = () => {
 </script> -->
 
 
-<template>
-  <span>Prueba</span>
+<!-- <template>
+  <span>INICIAR SESIÓN</span>
   <div id="app">
     <input_personalizable id="email" type="email" hint="Correo electrónico" :variablePadre="email" @update:variablePadre="email = $event" />
     <input_personalizable id="password" type="password" hint="Contraseña" :variablePadre="password" @update:variablePadre="password = $event" />
@@ -41,4 +56,6 @@ const submit = () => {
 body {
   background-color: #82C3C7;
 }
-</style>
+</style> -->
+
+

@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { ref, toRefs, defineProps, defineEmits } from 'vue';
+import { toRefs, defineEmits } from 'vue';
 
 // Parametros
 const props = defineProps(['id', 'type', 'hint', 'variablePadre'])
@@ -31,13 +31,21 @@ const updateValue = (event) => {
 </script>
 
 <style scoped>
+div {
+  margin-top: 5%;
+}
 input {
   background-color: white;
-  border: 2px solid black;
-  border-radius: 10px;
-  padding-left: 2%;
-  height: 10vh;
+  border: 1.5px solid black;
+  border-radius: 20px;
+  padding-left: 5%;
+  height: 8vh;
   width: 50vw;
+}
+
+input::placeholder {
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
 }
 </style>
 
