@@ -10,7 +10,7 @@
       <option value="" disabled selected>{{ hint }}</option>
       <option value="masculino">Masculino</option>
       <option value="femenino">Femenino</option>
-      <option value="lgtbiq+">LGTBIQ+</option>
+      <option value="noBinario">No Binario</option>
     </select>
   </div>
 </template>
