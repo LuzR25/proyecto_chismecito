@@ -1,23 +1,8 @@
 <template>
-  <span>Prueba jdkjskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjsdnnnnnnnnnnnncksiijqwhdwhdhuahkuejbdkjbkjhcjabk</span>
-</template>
-
-<script setup>
-</script>
-
-<style scoped>
-body {
-  background-color: #82C3C7;
-}
-</style>
-
-<!-- 
-  ##################### COMO USAR EL COMPONENTE "input_personalizable" ###########################################
-  <template>
   <span>Prueba</span>
   <div id="app">
-    <input_personalizable id="email" type="email" hint="Correo electrónico" v-model="email" />
-    <input_personalizable id="password" type="password" hint="Contraseña" v-model="password" />
+    <input_personalizable id="email" type="email" hint="Correo electrónico" :variablePadre="email" @update:variablePadre="email = $event" />
+    <input_personalizable id="password" type="password" hint="Contraseña" :variablePadre="password" @update:variablePadre="password = $event" />
     <button @click="submit">Enviar</button>
   </div>
 </template>
@@ -39,5 +24,3 @@ body {
   background-color: #82C3C7;
 }
 </style>
-#################################################################################################################
- -->
