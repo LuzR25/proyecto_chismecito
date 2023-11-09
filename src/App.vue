@@ -9,10 +9,26 @@ import formulario_singup from './components/formulario_singup.vue';
 
 </script>
 
-<style setup>
+<style>
 body {
-    background-color: #82C3C7;
-  }
+  background-color: #82C3C7;
+}
+
+.formularios {
+  font-family: 'Abel', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spanFormulario {
+  font-size: 40px;
+}
 </style>
 
 <!-- <template>
