@@ -1,7 +1,7 @@
 <template>
     <div class="formularios">
         <span class="spanFormulario"> CREA TU CUENTA </span>
-        <input_personalizable id="fechaNacimiento" type="date" hint="Fecha de nacimiento"
+        <input_personalizable id="fechaNacimiento" type="date" hint="Fecha de nacimiento" :variablePadre="fechaNacimiento"
             @update:variablePadre="fechaNacimiento = $event"></input_personalizable>
         <input_personalizable id="genero" type="select" hint="Género" :variablePadre="genero"
             @update:variablePadre="genero = $event"></input_personalizable>
