@@ -1,9 +1,9 @@
 <template>
   <div class="formularios">
     <span class="spanFormulario">INICIAR SESIÓN</span>
-    <input_personalizable id="nombreUsuario" type="text" hint="Nombre de usuario" :variablePadre="nombreUsuario"
+    <input_personalizable id="nombreUsuario" class="input" type="text" hint="Nombre de usuario" :variablePadre="nombreUsuario"
       @update:variablePadre="nombreUsuario = $event" />
-    <input_personalizable id="password" type="password" hint="Contraseña" :variablePadre="password"
+    <input_personalizable id="password" class="input" type="password" hint="Contraseña" :variablePadre="password"
       @update:variablePadre="password = $event" />
     <boton_personalizable texto="INGRESAR" color="#EBCE7D" :accion="submit" />
   </div>
@@ -19,11 +19,6 @@ let password = '';
 const submit = () => {
   console.log(`Usuario: ${nombreUsuario}, Contraseña: ${password}`);
 };
-
-/* const miFuncion = () => {
-console.log('¡Botón presionado!');
-};
-*/
 </script>
   
-<style scoped></style>
+<style></style>

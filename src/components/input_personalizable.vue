@@ -4,13 +4,13 @@
         + :value="variablePadre" es el parametro que se pasa a traves del padre. En este se caso el padre va a pasar una variable en la cual se guardara el dato que el usuario escribe en el campo de entrada.
         + @input esta accion se realiza cuando el usuario escribe en el campo de entrada y cuando sucede esto se ejecuta la función "updateValue".
     -->
-    <input v-if="type !== 'select' && type !== 'date'" :id="id" :type="type" :placeholder="hint" :value="variablePadre"
-      @input="updateValue" />
+    <input v-if="type !== 'select' && type !== 'date'" :id="id" class="inputDatos" :type="type" :placeholder="hint"
+      :value="variablePadre" @input="updateValue" />
     <!-- input de tipo date (fecha) -->
-    <input v-else-if="type === 'date'" :id="id" :type="fechaEnTipo" :placeholder="hint" :value="variablePadre"
-      @focus="cambiarFechaADate" @input="updateValue" />
+    <input v-else-if="type === 'date'" :id="id" class="inputDatos" :type="fechaEnTipo" :placeholder="hint"
+      :value="variablePadre" @focus="cambiarFechaADate" @input="updateValue" />
     <!-- input de tipo select (seleccion) -->
-    <select v-else :id="id" :value="variablePadre" @change="updateValue">
+    <select v-else :id="id" class="inputDatos" :value="variablePadre" @change="updateValue">
       <option value="" disabled selected>{{ hint }}</option>
       <option value="masculino">Masculino</option>
       <option value="femenino">Femenino</option>
@@ -20,12 +20,27 @@
 </template>
 
 <script setup>
-import { ref, toRefs, defineEmits } from 'vue';
+import { ref, defineEmits } from 'vue';
 
 // Parametros
-const props = defineProps(['id', 'type', 'hint', 'variablePadre'])
-
-const { id, type, hint, variablePadre } = toRefs(props);
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  hint: {
+    type: String,
+    required: true
+  },
+  variablePadre: {
+    type: null, //acepta cualquier tipo de dato
+    required: true
+  }
+})
 
 const emit = defineEmits(['update:variablePadre'])
 
@@ -51,39 +66,8 @@ const cambiarFechaADate = () => {
 </script>
 
 <style scoped>
-div {
-  margin-top: 5%;
-}
-
 input,
 select {
-  font-size: 20px;
-  background-color: white;
-  border: 1.5px solid black;
-  border-radius: 15px;
-  padding-left: 5%;
-  padding-right: 5%;
-  height: 8vh;
-  width: 50vw;
+  margin-top: 5%;
 }
 </style>
-
-<!-- <template>
-  <div>
-    <input :id="id" :type="type" :placeholder="hint" v-model="modelValue" @input="emit('update:modelValue', $event.target.value)" />
-  </div>
-</template>
-
-<script setup>
-import { ref, toRefs, defineProps, defineEmits } from 'vue';
-
-const props = defineProps(['id', 'type', 'hint', 'modelValue'])
-
-const { id, type, hint, modelValue } = toRefs(props);
-
-const emit = defineEmits(['update:modelValue'])
-</script>
-
-<style scoped>
-/* Aquí puedes agregar tu CSS personalizado */
-</style> -->
