@@ -1,0 +1,52 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+#app {
+    background-color: #82C3C7;
+    /* Aplica la fuente de letra de manera global (a todo el sitio web). */
+    font-family: 'Abel';
+}
+
+button,
+input,
+select {
+    /* Los botones e inputs no heredan el tipo de letra de los padres */
+    font-family: 'Abel';
+}
+
+/* Diseño para los formularios */
+/* .formularios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.formularios {
+    display: grid;
+    width: fit-content;
+    text-align: center;
+}
+
+.spanFormulario {
+    font-size: 40px;
+}
+
+/* Diseño para todos los inputs del sitio web */
+.inputDatos {
+    font-size: 20px;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 15px;
+    padding-left: 3%;
+    padding-right: 3%;
+    height: 8vh;
+    width: 50vw;
+}
