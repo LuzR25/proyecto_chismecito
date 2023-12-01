@@ -1,7 +1,5 @@
 <template>
     <span>Chismecito.com</span>
-    
-
 </template>
 
 <script setup>
