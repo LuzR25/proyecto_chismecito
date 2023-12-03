@@ -1,7 +1,7 @@
 <template>
   <!-- <formulario_login></formulario_login>
   <formulario_singup></formulario_singup> -->
-  <informacion_cuenta></informacion_cuenta>
+  <informacion_cuenta fecha-nacimiento="2001-05-03" genero="masculino" usuario="Ibis" password="Ibis123"></informacion_cuenta>
 </template>
 
 <script setup>
