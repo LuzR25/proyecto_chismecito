@@ -8,6 +8,8 @@
     background-color: #82C3C7;
     /* Aplica la fuente de letra de manera global (a todo el sitio web). */
     font-family: 'Abel';
+    user-select: none;
+    overflow-x: hidden;
 }
 
 button,
