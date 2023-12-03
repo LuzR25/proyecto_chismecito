@@ -1,10 +1,12 @@
 <template>
     <div id="componenteVerInf">
+        <!-- INPUT FECHA DE NACIMIENTO -->
         <div class="contenedorInf">
             <label class="labelPrincipal" for="">Fecha de nacimiento</label>
             <!-- class="inputDatos" para agregar el diseño global para los inputs de entrada del sitio web -->
-            <input class="inputDatos" type="date" v-model="fechaNacimiento">
+            <input class="inputDatos" type="date" v-model="props.fechaNacimiento">
         </div>
+        <!-- INPUT GENERO -->
         <div class="contenedorInf">
             <label class="labelPrincipal" for="select">Género</label>
             <!-- Se mostrará el select -->
@@ -24,13 +26,15 @@
                 <option value="noBinario" selected>No Binario</option>
             </select>
         </div>
+        <!-- INPUT USUARIO -->
         <div class="contenedorInf">
             <label class="labelPrincipal" for="">Usuario</label>
-            <input class="inputDatos" type="text" v-model="usuario">
+            <input class="inputDatos" type="text" v-model="props.usuario">
         </div>
+        <!-- INPUT PASSWORD -->
         <div id="ultimoContenedorInf" class="contenedorInf">
             <label class="labelPrincipal" for="">Contraseña</label>
-            <input class="inputDatos" :type="mostrarPassword ? 'text' : 'password'" v-model="password">
+            <input class="inputDatos" :type="mostrarPassword ? 'text' : 'password'" v-model="props.password">
             <div id="divMostrarPassword">
                 <input type="checkbox" v-model="mostrarPassword">
                 <label for="">Ver contraseña</label>
@@ -48,13 +52,26 @@
 import boton_personalizable from './boton_personalizable.vue';
 import { ref } from 'vue';
 
-let mostrarPassword = ref(false);
+ let mostrarPassword = ref(false);
 
-let fechaNacimiento = '2002-11-25';
-let genero = 'femenino';
-let usuario = 'Luz';
-let password = ref('lucecita');
-
+ const props = defineProps({
+  fechaNacimiento: {
+    type: String,
+    required: true
+  },
+  genero: {
+    type: String,
+    required: true
+  },
+  usuario: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+})
 </script>
 
 <style scoped>
