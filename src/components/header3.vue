@@ -9,11 +9,26 @@
             
           </div>
 
-          <a href="">
+          <!-- <a href=""> -->
+          <router-link :to="{ name: 'home' }">
             <p style="text-align: right;">Inicio</p>
-          </a>
+          </router-link>
 
-          <a href="">
+          <router-link :to="{ name: 'acercaDe' }">
+            <p>Acerca de</p>
+          </router-link>
+
+          <router-link :to="{ name: 'login' }">
+            <p style="text-align: left;">Iniciar sesión</p>
+          </router-link>
+
+          <router-link :to="{ name: 'signUp' }">
+            <p style="text-align: left;">Registrarse</p>
+          </router-link>
+            
+          <!-- </a> -->
+
+          <!-- <a href="">
             <p>Acerca de</p>
           </a>
 
@@ -26,7 +41,7 @@
 
           <a href="">
             <p style="text-align: left;">Registrarse</p>
-          </a>
+          </a> -->
         </div>
         
       </div>

@@ -48,50 +48,37 @@ import { defineProps } from 'vue';
 const props = defineProps({
   fechaNacimiento: {
     type: String,
-    required: true
+    required: false
   },
   genero: {
     type: String,
-    required: true
+    required: false
   },
   usuario: {
     type: String,
-    required: true
+    required: false
   },
   password: {
     type: String,
-    required: true
+    required: false
   }
 })
 
-passwordFunciona = ref(props.password);
+
+//passwordFunciona = ref(props.password);
 
 let mostrarPassword = ref(false);
 
-/* const props = defineProps({
-    fechaNacimiento: {
-        type: String,
-        required: true
-    },
-    genero: {
-        type: String,
-        required: true
-    },
-    usuario: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-}); */
-
 // Create local data properties
-let localFechaNacimiento = ref(props.fechaNacimiento);
+/* let localFechaNacimiento = ref(props.fechaNacimiento);
 let localGenero = ref(props.genero);
 let localUsuario = ref(props.usuario);
-let localPassword = ref(props.password);
+let localPassword = ref(props.password); */
+
+let localFechaNacimiento = '2002-11-25';
+let localGenero = 'femenino';
+let localUsuario = 'luciernaga';
+let localPassword = 'luna';
 
 const emit = defineEmits(['actualizar-datos']);
 

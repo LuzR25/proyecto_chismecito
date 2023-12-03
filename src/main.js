@@ -2,7 +2,9 @@
 import './assets/global.css'
 // Importa las funciones necesarias de Vue
 import { createApp } from 'vue'
-import VueRouter from 'vue-router'
+/* import { Vue } from 'vue'
+import { VueRouter } from 'vue-router' */
+import { router } from './router'
 // Importa tu componente principal de Vue
 import App from './App.vue'
 
@@ -53,11 +55,11 @@ function startApp(db) {
  */
 
 
-Vue.use(VueRouter)
+//Vue.use(VueRouter)
 
 // 1. Define route components.
 // These can be imported from other files
-const Home = { template: '<div>Home</div>' }
+/* const Home = { template: '<div>Home</div>' }
 const About = { template: '<div>About</div>' }
 
 // 2. Define some routes
@@ -67,7 +69,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
 ]
-
+ */
 /* const router = new VueRouter({
     mode: 'history',
     base: __dirname,
@@ -81,10 +83,13 @@ const routes = [
 // 3. Create the router instance and pass the `routes` option
 // You can pass in additional options here, but let's
 // keep it simple for now.
-const router = VueRouter.createRouter({
+/* const router = VueRouter.createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
   history: VueRouter.createWebHashHistory(),
   routes, // short for `routes: routes`
-})
+}) */
+
+
+
 
 createApp(App).use(router).mount('#app');

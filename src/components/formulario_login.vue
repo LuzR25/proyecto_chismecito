@@ -12,13 +12,16 @@
 <script setup>
 import input_personalizable from './input_personalizable.vue';
 import boton_personalizable from './boton_personalizable.vue';
+import { router } from '../router'
 
 let nombreUsuario = '';
 let password = '';
 
-const submit = () => {
+function submit() {
   console.log(`Usuario: ${nombreUsuario}, Contraseña: ${password}`);
-};
+  router.push({ name: 'infoCuenta' })
+  /* router.push({ name: 'cuenta', params: { usuario: nombreUsuario } }) */
+}
 </script>
   
 <style></style>

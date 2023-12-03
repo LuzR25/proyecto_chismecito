@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align: center;">
+  <!-- <div style="text-align: center;">
   <h1>Aplicación de Notas</h1>
   <h2>Agregar Nueva Nota</h2>
   <div>
@@ -12,19 +12,26 @@
   <div><h2>Lista de Usuarios</h2></div>
   <div v-if="listaUsuarios.length === 0">Aún no has creado un usuario.</div>
   <div v-else v-for="(item, index) in listaUsuarios">
-    <!-- <ItemNota @editarTarea="editarNota()" @eliminarTarea="eliminarNota(index)"
-     :titulo="item.tituloNota" :contenido="item.contenidoNota"></ItemNota> -->
+    <ItemNota @editarTarea="editarNota()" @eliminarTarea="eliminarNota(index)"
+     :titulo="item.tituloNota" :contenido="item.contenidoNota"></ItemNota>
      <Informacion_cuenta :fechaNacimiento="item.fechaNacimiento" :genero="item.genero"
       :usuario="item.usuario" :password="item.password"></Informacion_cuenta>
   </div>
   
-  </div>
+  </div> -->
+
+  <header3></header3>
+  <router-view></router-view>
+  <router-view name="infoCuentaV"></router-view>
+  <router-view name="cochinada"></router-view>
   
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue';
-import Informacion_cuenta from './components/informacion_cuenta.vue';
+import header3 from './components/header3.vue';
+//import Informacion_cuenta from './components/informacion_cuenta.vue';
+
 
 let fechaNacimiento /* = '2002-11-25' */;
 let genero /* = 'femenino' */;
