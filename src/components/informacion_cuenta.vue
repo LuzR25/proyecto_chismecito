@@ -3,22 +3,22 @@
         <div class="contenedorInf">
             <label class="labelPrincipal" for="">Fecha de nacimiento</label>
             <!-- class="inputDatos" para agregar el diseño global para los inputs de entrada del sitio web -->
-            <input class="inputDatos" type="date" v-model="fechaNacimiento">
+            <input class="inputDatos" type="date" v-model="props.fechaNacimiento">
         </div>
         <div class="contenedorInf">
             <label class="labelPrincipal" for="select">Género</label>
             <!-- Se mostrará el select -->
-            <select v-if="genero == 'masculino'" id="select" class="inputDatos">
+            <select v-if="props.genero == 'masculino'" id="select" class="inputDatos">
                 <option value="masculino" selected>Masculino</option>
                 <option value="femenino">Femenino</option>
                 <option value="noBinario">No Binario</option>
             </select>
-            <select v-else-if="genero == 'femenino'" id="select" class="inputDatos">
+            <select v-else-if="props.genero == 'femenino'" id="select" class="inputDatos">
                 <option value="masculino">Masculino</option>
                 <option value="femenino" selected>Femenino</option>
                 <option value="noBinario">No Binario</option>
             </select>
-            <select v-else="genero == 'noBinario'" id="select" class="inputDatos">
+            <select v-else="props.genero == 'noBinario'" id="select" class="inputDatos">
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
                 <option value="noBinario" selected>No Binario</option>
@@ -26,11 +26,11 @@
         </div>
         <div class="contenedorInf">
             <label class="labelPrincipal" for="">Usuario</label>
-            <input class="inputDatos" type="text" v-model="usuario">
+            <input class="inputDatos" type="text" v-model="usuarioI">
         </div>
         <div id="ultimoContenedorInf" class="contenedorInf">
             <label class="labelPrincipal" for="">Contraseña</label>
-            <input class="inputDatos" :type="mostrarPassword ? 'text' : 'password'" v-model="password">
+            <input class="inputDatos" :type="mostrarPassword ? 'text' : 'password'" v-model="props.password">
             <div id="divMostrarPassword">
                 <input type="checkbox" v-model="mostrarPassword">
                 <label for="">Ver contraseña</label>
@@ -45,15 +45,44 @@
 </template>
 
 <script setup>
-import boton_personalizable from './boton_personalizable.vue';
+//import boton_personalizable from './boton_personalizable.vue';
 import { ref } from 'vue';
+import { defineProps } from 'vue';
+
+//const props=defineProps(['fechaNacimiento', 'genero', 'usuario', 'password']);
+
+const props = defineProps({
+  fechaNacimiento: {
+    type: String,
+    required: true
+  },
+  genero: {
+    type: String,
+    required: true
+  },
+  usuario: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+})
+
+passwordFunciona = ref(props.password);
 
 let mostrarPassword = ref(false);
 
-let fechaNacimiento = '2002-11-25';
-let genero = 'femenino';
+//let fechaNacimiento = '2002-11-25';
+/*let genero = 'femenino';
 let usuario = 'Luz';
-let password = ref('lucecita');
+let password = ref('lucecita'); */
+
+/* let fechaNacimientoI = props.fechaNacimiento;
+let generoI = props.genero;
+let usuarioI = props.usuario;
+let passwordI = ref(props.password); */
 
 </script>
 

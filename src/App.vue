@@ -1,19 +1,57 @@
 <template>
-  <!-- <formulario_login></formulario_login>
-  <formulario_singup></formulario_singup> -->
-  <informacion_cuenta></informacion_cuenta>
+  <div style="text-align: center;">
+  <h1>Aplicación de Notas</h1>
+  <h2>Agregar Nueva Nota</h2>
+  <div>
+    <div><input type="text" :multiple="false" v-model="fechaNacimiento" placeholder="Fecha de nacimiento"></div>
+    <div><input type="text" :multiple="false" v-model="genero" placeholder="Género"></div>
+    <div><input type="text" :multiple="false" v-model="usuario" placeholder="Usuario"></div>
+    <div><input type="text" :multiple="false" v-model="password" placeholder="Contraseña"></div>
+    <div><button @click="guardarUsuarioVue()">Crear usuario</button></div>
+  </div>
+  <div><h2>Lista de Usuarios</h2></div>
+  <div v-if="listaUsuarios.length === 0">Aún no has creado un usuario.</div>
+  <div v-else v-for="(item, index) in listaUsuarios">
+    <!-- <ItemNota @editarTarea="editarNota()" @eliminarTarea="eliminarNota(index)"
+     :titulo="item.tituloNota" :contenido="item.contenidoNota"></ItemNota> -->
+     <Informacion_cuenta :fechaNacimiento="item.fechaNacimiento" :genero="item.genero"
+      :usuario="item.usuario" :password="item.password"></Informacion_cuenta>
+  </div>
+  
+  </div>
+  
 </template>
 
 <script setup>
-import informacion_cuenta from './components/informacion_cuenta.vue';
+import { ref, reactive } from 'vue';
+import Informacion_cuenta from './components/informacion_cuenta.vue';
+
+let fechaNacimiento /* = '2002-11-25' */;
+let genero /* = 'femenino' */;
+let usuario /* = 'Luz' */;
+let password /* = ref('lucecita') */; 
 
 
+/* let tituloNota = ref("");
+let contenidoNota = ref(""); */
+let listaUsuarios = reactive([/* {tituloNota: 'Primer Nota', contenidoNota: "Esta es mi primer nota del día"}, 
+                           {tituloNota: 'Segunda Nota', contenidoNota: "Esta es la segunda nota del día"} */]);
 
+function guardarUsuarioVue() {
+  listaUsuarios.push({id: listaUsuarios.length, fechaNacimiento: fechaNacimiento.value, genero: genero.value, usuario: usuario.value, password: password.value})
+  fechaNacimiento.value = ""
+  genero.value = ""
+  usuario.value = ""
+  password.value = ""
+}
 
+/* function editarNota(index) {
+  
+}
 
-
-
-import { reactive } from 'vue';
+function eliminarNota(index) {
+  listaNotas.splice(index, 1)
+} */
 
 let usuarios = reactive([{ id: 0, fechaNacimiento: '2002-11-25', genero: 'femenino', password: 'lucecita', nomUsuario: 'luz' },
   { id: 1, fechaNacimiento: '2002-03-14', genero: 'masculino', password: 'acuita', nomUsuario: 'acuablast' },
@@ -21,22 +59,23 @@ let usuarios = reactive([{ id: 0, fechaNacimiento: '2002-11-25', genero: 'femeni
   { id: 3, fechaNacimiento: '2002-11-04', genero: 'femenino', password: 'cieloAzul', nomUsuario: 'cielo' },])
 
 //! No tengo ni la más mínima idea de lo que hago
-function modificarUsario(index, usuarioModificado) {
+/* function modificarUsario(index, usuarioModificado) {
   usuarios[index] = usuarioModificado
 }
-
-function crearUsuario(usuario) {
+ */
+/* function crearUsuario(usuario) {
   //* Eso de ahí puede generar usuarios con id repetido si alguno del medio se elimina y luego se añade otro
   listaNotas.push({id: usuarios.length, fechaNacimiento: usuario.fechaNacimiento, genero: usuario.genero, password: usuario.password, nomUsuario: usuario.nomUsuario})
 }
-
-function eliminarUsuario(index) {
+ */
+/* function eliminarUsuario(index) {
   usuarios.splice(index, 1)
 }
-
-function obtenerUsuario(index) {
+ */
+/* function obtenerUsuario(index) {
   return usuarios.findIndex(index)
 }
+ */
 
 
 
@@ -46,8 +85,7 @@ function obtenerUsuario(index) {
 
 
 
-
-
+/* 
 function crearUsuario(usuarioNuevo) {
     // Crea un objeto usuario
     let usuario = {
@@ -225,7 +263,7 @@ let db = await idb.openDB('store', 1, db => {
     console.log('error', err.message);
   }
 
-
+ */
 
 </script>
 
