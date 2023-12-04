@@ -47,4 +47,13 @@ function submit() {
 }
 </script>
   
-<style></style>
+<style scoped>
+.formularios{
+  margin: 2vh auto calc(86vh - (40px + 16vh + 10% + 5%) + 9vh) auto;
+  
+  
+}
+.spanFormulario{
+  height: 40px;
+}
+</style>
