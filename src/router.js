@@ -26,13 +26,5 @@ export const router = createRouter({
   { path: '/cuenta/:usuario/infocuenta', name: 'infoCuentas', component: InfoCuenta }], */
 })
 
-/* const router = new VueRouter({
-  mode: 'history',
-  base: __dirname,
-  routes: [
-    { path: '/', name: 'home', component: Home },
-    { path: '/foo', name: 'foo', component: Foo },
-    { path: '/bar/:id', name: 'bar', component: Bar }
-  ]
-})
- */
+//* Que no se me olvide pasar los parámetros usando props, y no jalando todo así 
+//* pedorro directo de las rutas

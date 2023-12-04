@@ -19,7 +19,9 @@
 <script setup>
 import input_personalizable from './input_personalizable.vue';
 import boton_personalizable from './boton_personalizable.vue';
+//import { crearUsuario } from '../db_controller';
 
+//let idUsuario = 0;
 let fechaNacimiento;
 let genero = "";
 let nombreUsuario = "";
@@ -28,6 +30,15 @@ let confirmacionPassword = "";
 
 const submit = () => {
     console.log(`Fecha nacimiento: ${fechaNacimiento}, Genero: ${genero}, Usuario: ${nombreUsuario}, Contraseña: ${password}, Confirmación contraseña: ${confirmacionPassword}`);
+    /* const usuario = {
+        fechaNacimiento: fechaNacimiento.value,
+        genero: genero.value,
+        nombre: nombreUsuario.value,
+        password: password.value,
+    };
+    crearUsuario(usuario); */
+    
+    //idUsuario++;
 };
 
 </script>

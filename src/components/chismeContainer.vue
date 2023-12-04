@@ -42,7 +42,7 @@
   
 <script setup>
 import { ref } from 'vue';
-  import chismeCard from './chismeCard.vue';
+  import chismeCard from './chismeCard.vue'; //! No sé a qué se debe este error, pero que se muera
     import { defineProps } from 'vue';
 
     const props=defineProps(['tituloNota', 'contenidoNota'])
