@@ -1,7 +1,7 @@
 <template>
 <div v-for="(item) in listaChismesGuardados">
     <chismecard :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
-        :genero="obtenerGenero(item.idUsuario)" :edad="item.idUsuario" :guardado="true" >
+        :genero="obtenerGenero(item.idUsuario)" :edad="obtenerEdad(item.idUsuario)" :guardado="true" >
     </chismecard>
 </div>
 </template>
@@ -33,6 +33,25 @@ function obtenerGenero(idUsuario) {
     } else {
         return 'No binario';
     }
+}
+
+function calcularEdad(fechaNacimiento) {
+    var hoy = new Date();
+    var cumpleanos = new Date(fechaNacimiento);
+    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    var m = hoy.getMonth() - cumpleanos.getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+    return edad;
+}
+
+function obtenerEdad(idUsuario) {
+  let usuario = obtenerUsuario(idUsuario);
+  
+  let edad = calcularEdad(usuario.fechaNacimiento);
+
+  return edad;
 }
 
 

@@ -58,3 +58,19 @@ export function obtenerChisme(idChisme) {
     }
 }
 
+// Función para ordenar de más reciente a más antigua
+export function ordenarChismesRecientes() {
+    let copiaListaChismes = [...listaChismes];
+    return copiaListaChismes.sort((a, b) => {
+        return new Date(b.fechaPublicacion) - new Date(a.fechaPublicacion);
+    });
+}
+
+// Función para ordenar de más antigua a más reciente
+export function ordenarChismesAntiguos() {
+    let copiaListaChismes = [...listaChismes];
+    return copiaListaChismes.sort((a, b) => {
+        return new Date(a.fechaPublicacion) - new Date(b.fechaPublicacion);
+    });
+}
+

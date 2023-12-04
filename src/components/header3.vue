@@ -10,7 +10,7 @@
           </div>
 
           <!-- <a href=""> -->
-          <router-link :to="{ name: 'chismes' }">
+          <router-link :to="{ name: 'recientes' }">
             <p style="text-align: right;">Inicio</p>
           </router-link>
 

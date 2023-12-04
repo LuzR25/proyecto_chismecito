@@ -39,7 +39,9 @@ function submit() {
     //router.push({ name: '/', params: {idUsuario: existe} });
     //! El replace no está funcionando aquí como en cerrar sesión
     //router.replace({ name: 'infoCuenta', params: {idUsuario: existe} });
-    location.replace('/inicio');
+    //location.replace('/inicio');
+    location.replace('/masrecientes');
+    
     //router.replace({ name: 'chismes' });
   }
 }

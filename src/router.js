@@ -9,6 +9,8 @@ import ElegirHeader from './components/elegir_header.vue'
 import ChismesGuardados from './components/chismes_guardados.vue'
 import ChismesPublicados from './components/chismes_publicados.vue'
 import EscribirChisme from './components/input_escribir_chisme.vue'
+import ChismeRecientes from './components/mas_recientes.vue'
+import ChismeAntiguos from './components/mas_antiguos.vue'
 
 /* export const router = createRouter({
   history: createWebHistory(),
@@ -27,7 +29,11 @@ export const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', name: 'home', component: ElegirHeader, children: [
-      { path: '/inicio', name: 'chismes', component: ChismecitoContainer },
+      { path: '/inicio', name: 'chismes', component: ChismecitoContainer, children: [
+        { path: '/masrecientes', name: 'recientes', component: ChismeRecientes },
+        { path: '/masantiguos', name: 'antiguos', component: ChismeAntiguos },
+        { path: '/maspopulares', name: 'populares', component: ChismeAntiguos },] 
+      },
       { path: '/login', name: 'login', component: LoginFormulario },
       { path: '/signup', name: 'signUp', component: SignUpFormulario },
       { path: '/acercade', name: 'acercaDe', component: AcercaDe },

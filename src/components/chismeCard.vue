@@ -51,8 +51,14 @@
 <script setup>
 import { ref, defineProps } from 'vue';
 import { format } from "https://cdn.skypack.dev/date-fns@2.29.3";
+import { router } from '../router';
+import { guardarChisme } from "../chismes_guardados_controller.js";
 
 const props = defineProps({
+  idChisme: {
+    type: Number,
+    required: true
+  },
   fechaPublicacion: {
     type: String,
     required: true
@@ -187,13 +193,29 @@ function saveadDisabled() {
 }
 
 const save = () => {
+    if (localStorage.getItem('sesionIniciada') === 'true') {
+        if (saveColor.value == '#a7a7a7') {
+            guardarChisme(props.idChisme, localStorage.getItem('idUsuario'));
+            saveColor.value='#1d9bf0';
+            
+        } else {
+            saveColor.value='#a7a7a7'
+        }
+    } else {
+        saveColor.value='#a7a7a7';
+        router.push({name: 'login'});
+    }
+    
+}
+
+/* const save = () => {
     if (saveColor.value == '#a7a7a7') {
         saveColor.value='#1d9bf0';
         
     } else {
         saveColor.value='#a7a7a7'
     }
-}
+} */
 
 /* save functions */
 

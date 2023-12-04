@@ -10,35 +10,42 @@
       </div>
       
       <div class="buttons">
-
-        <div class="button" :style="{ backgroundColor: color1}" @click="changeColor(1);">
-          <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
-            <path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"/>
-          </svg>
-          <p class="txt">Más recientes</p>
-        </div>
-
-        <div class="button" :style="{ backgroundColor: color2}" @click="changeColor(2);">
-          <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
-            <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
-          </svg>
-          <p class="txt">Más antiguos</p>
-        </div>
-
-        <div class="button" :style="{ backgroundColor: color3}" @click="changeColor(3);">
-          <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" width="30"  viewBox="0 0 24 24" >
-            <path  d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z"/>
-          </svg>
-          <p class="txt">Más populares</p>
-        </div>
         
+        <router-link :to="{name: 'recientes'}">
+          <div class="button" :style="{ backgroundColor: color1}" @click="changeColor(1);">
+            <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
+              <path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"/>
+            </svg>
+            <p class="txt">Más recientes</p>
+          </div>
+        </router-link>
+
+        <router-link :to="{name: 'antiguos'}">
+          <div class="button" :style="{ backgroundColor: color2}" @click="changeColor(2);">
+            <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
+              <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
+            </svg>
+            <p class="txt">Más antiguos</p>
+          </div>
+        </router-link>
+
+        <router-link :to="{name: 'populares'}">
+          <div class="button" :style="{ backgroundColor: color3}" @click="changeColor(3);">
+            <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" width="30"  viewBox="0 0 24 24" >
+              <path  d="M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z"/>
+            </svg>
+            <p class="txt">Más populares</p>
+          </div>
+        </router-link>
       </div>
 
-      <div v-for="(item) in listaChismes">
-        <chismeCard :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
-          :genero="obtenerGenero(item.idUsuario)" :edad="item.idUsuario">
+      <router-view></router-view>
+
+      <!-- <div v-for="(item) in listaChismes">
+        <chismeCard :id-chisme="item.id" :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
+          :genero="obtenerGenero(item.idUsuario)" :edad="obtenerEdad(item.idUsuario)">
         </chismeCard>
-      </div>
+      </div> -->
       <!-- <chismeCard></chismeCard>
       <chismeCard></chismeCard>
       <chismeCard></chismeCard> -->
@@ -48,9 +55,32 @@
   
 <script setup>
 import { ref, reactive } from 'vue';
-import chismeCard from './chismeCard.vue'; //! No sé a qué se debe este error, pero que se muera
-import { listaChismes } from "../chismes_controller";
+/* import chismeCard from './chismeCard.vue'; //! No sé a qué se debe este error, pero que se muera
+import { listaChismes, ordenarChismesRecientes } from "../chismes_controller";
 import { obtenerUsuario } from "../datos_controller";
+
+let listaChismesRecientes = reactive([]);
+
+listaChismesRecientes = ordenarChismesRecientes();
+
+function calcularEdad(fechaNacimiento) {
+    var hoy = new Date();
+    var cumpleanos = new Date(fechaNacimiento);
+    var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    var m = hoy.getMonth() - cumpleanos.getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+    return edad;
+}
+
+function obtenerEdad(idUsuario) {
+  let usuario = obtenerUsuario(idUsuario);
+  
+  let edad = calcularEdad(usuario.fechaNacimiento);
+
+  return edad;
+}
 
 function obtenerGenero(idUsuario) {
     let usuario = obtenerUsuario(idUsuario);
@@ -62,7 +92,7 @@ function obtenerGenero(idUsuario) {
     } else {
         return 'No binario';
     }
-}
+} */
 
 let color1 = ref("#ffffff");
 let color2 = ref("#00000000");
@@ -153,6 +183,7 @@ const changeColor = (button) => {
   float: left;
 }
 .txt{
+  color: black;
   float: left;
   padding-left: 3px;
   padding-top: 5px;

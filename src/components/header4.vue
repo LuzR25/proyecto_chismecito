@@ -9,7 +9,7 @@
             
           </div>
 
-          <router-link :to="{ name: 'chismes' }">
+          <router-link :to="{ name: 'recientes' }">
             <p style="text-align: right;">Inicio</p>
           </router-link>
 
@@ -40,7 +40,7 @@ function cerrarSesion() {
   // Borrar datos de sesión
   localStorage.setItem("idUsuario", -1);
   localStorage.setItem("sesionIniciada", false);
-  router.replace({ name: 'chismes' }); //Debería borrar el historial de lo que hay
+  router.replace({ name: 'recientes' }); //Reza
 }
 
 let idUsuarioIS = localStorage.getItem("idUsuario");
