@@ -7,7 +7,7 @@
         </div>
         <div id="advertencia">
             <!-- Poner aquí icono svg de advertencia -->
-            <img src="../assets/advertencia.png" alt="Icono de advertencia">
+            <img  id="adver" src="../assets/advertencia.png" alt="Icono de advertencia">
             <br>
             <label>Evita:</label>
             <li>Escribir nombres (o al menos no uses los reales).</li>
@@ -57,6 +57,11 @@ const enviarChismecito = () => {
 </script>
 
 <style scoped>
+#adver{
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, 0px);
+}
 #contenedor {
     display: flex;
 }

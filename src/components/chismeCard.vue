@@ -103,14 +103,14 @@ const savedisabled2 = ref(false);
 let saveColor = ref("#a7a7a7");
 
 if (props.guardado === true) {
-    saveColor.value = "#1d9bf0"; 
+    saveColor.value = "#ff4c2d"; 
 }
 
 
 /* like functions */
 
 function likewarnDisabled() { 
-    if (likeColor.value == '#dc487f') {
+    if (likeColor.value == '#ebce7d') {
         likedisabled1.value = true
   setTimeout(() => {
     likedisabled1.value = false
@@ -120,7 +120,7 @@ function likewarnDisabled() {
 }
 
 function likeadDisabled() { 
-    if (likeColor.value == '#dc487f') {
+    if (likeColor.value == '#ebce7d') {
         likedisabled2.value = true;
         setTimeout(() => {
             likedisabled2.value = false }, 1700)
@@ -157,7 +157,7 @@ const like = () => {
         if (likeColor.value == '#a7a7a7') {
             aumentarCorazon(props.idChisme);
             //guardarChisme(props.idChisme, localStorage.getItem('idUsuario'));
-            likeColor.value='#dc487f';
+            likeColor.value='#ebce7d';
             
         } else {
             quitarCorazon(props.idChisme);
@@ -196,7 +196,7 @@ function reportadDisabled() {
 
 const report = () => {
     if (reportColor.value == '#a7a7a7') {
-        reportColor.value='#ff0000';
+        reportColor.value='#c61800';
         
     } else {
         reportColor.value='#a7a7a7'
@@ -230,7 +230,7 @@ const save = () => {
     if (localStorage.getItem('sesionIniciada') === 'true') {
         if (saveColor.value == '#a7a7a7') {
             guardarChisme(props.idChisme, localStorage.getItem('idUsuario'));
-            saveColor.value='#1d9bf0';
+            saveColor.value='#ff4c2d';
             
         } else {
             borrarChismeDeG(props.idChisme, localStorage.getItem('idUsuario'));
