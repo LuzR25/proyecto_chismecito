@@ -104,6 +104,7 @@ const enviarDatos = () => {
 
 <style scoped>
 #componenteVerInf {
+    margin: auto;
     width: fit-content;
 }
 
