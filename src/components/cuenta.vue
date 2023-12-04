@@ -97,10 +97,12 @@ const changeColor = (button) => {
 }
 #n{
     display: grid;
+    position: relative;
     grid-template-columns: 100%;
     width: 80%;
     height: 86vh;
     align-items: center;
+    
     
 }
 .button{
