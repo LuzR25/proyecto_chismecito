@@ -15,8 +15,12 @@ export const router = createRouter({
     { path: '/acercade', name: 'acercaDe', component: AcercaDe },
     { path: '/cuenta', name: 'cuenta', component: Cuenta, children: [
       { path: 'cochinada', name: 'cochinada', component: CochinadaPrueba },
-      { path: 'infoCuenta', name: 'infoCuenta', component: InfoCuenta } ]
-    },
+      { path: 'infoCuenta/:idUsuario', name: 'infoCuenta', component: InfoCuenta, props: true } ]
+    }, /* { 
+      path: '/products/:id', 
+      component: ProductDetailView, 
+      props: true 
+    } */
     /* { path: '/cuenta/cochinada', name: 'cochinada', components: { cuenta: Cuenta, cochinada: CochinadaPrueba } },
     { path: '/cuenta/infocuenta', name: 'infoCuentaV', components: { cuenta: Cuenta, infoCuenta: InfoCuenta } } */],
 

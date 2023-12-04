@@ -12,32 +12,30 @@
 <script setup>
 import input_personalizable from './input_personalizable.vue';
 import boton_personalizable from './boton_personalizable.vue';
-import { revisarUsuario } from '../db_controller';
+import { existeUsario } from "../datos_controller";
 import { router } from '../router'
 
 let nombreUsuario = '';
 let password = '';
 
-function submit() {
+/* function submit() {
   console.log(`Usuario: ${nombreUsuario}, Contraseña: ${password}`);
   router.push({ name: 'infoCuenta' })
   //router.push({ name: 'cuenta', params: { usuario: nombreUsuario } })
-}
+} */
 
-/* function submit() {
+function submit() {
   console.log(`Usuario: ${nombreUsuario}, Contraseña: ${password}`);
-  let existe = revisarUsuario(nombreUsuario, password);
-  console.log(`Resultado: ${existe.value}`);
+  let existe = existeUsario(nombreUsuario, password);
+  console.log(`Resultado: ${existe}`);
 
-  if (existe.value == false) {
-    console.log(`La contraseña es incorrecta.`);
-  } else if (existe.value == undefined) {
-    console.log(`La cuenta no existe.`);
+  if (existe == -1) {
+    console.log(`La contraseña es incorrecta o el usuario no existe`);
   } else {
     //! Debo preparar a este componente para recibir el id usuario
-    router.push({ name: 'infoCuenta' });
+    router.push({ name: 'infoCuenta', params: {idUsuario: existe} });
   }
-} */
+}
 </script>
   
 <style></style>

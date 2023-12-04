@@ -42,11 +42,12 @@
 //import boton_personalizable from './boton_personalizable.vue';
 import { ref } from 'vue';
 import { defineProps } from 'vue';
+import { obtenerUsuario, modificarUsuario, eliminarUsuario } from "../datos_controller";
 
 //const props=defineProps(['fechaNacimiento', 'genero', 'usuario', 'password']);
 
 const props = defineProps({
-  fechaNacimiento: {
+  /* fechaNacimiento: {
     type: String,
     required: false
   },
@@ -61,8 +62,16 @@ const props = defineProps({
   password: {
     type: String,
     required: false
+  }, */
+  idUsuario: {
+    type: Number,
+    required: true
   }
 })
+console.log(`Id recibido: ${props.idUsuario}`);
+let usuario = obtenerUsuario(props.idUsuario);
+
+console.log(`Usuario encontrado: ${usuario}`);
 
 
 //passwordFunciona = ref(props.password);
@@ -75,10 +84,10 @@ let localGenero = ref(props.genero);
 let localUsuario = ref(props.usuario);
 let localPassword = ref(props.password); */
 
-let localFechaNacimiento = '2002-11-25';
-let localGenero = 'femenino';
-let localUsuario = 'luciernaga';
-let localPassword = 'luna';
+let localFechaNacimiento = usuario.fechaNacimiento; //'2002-11-25';
+let localGenero = usuario.genero; //'femenino';
+let localUsuario = usuario.nomUsuario; //'luciernaga';
+let localPassword = usuario.password; //'luna';
 
 const emit = defineEmits(['actualizar-datos']);
 
