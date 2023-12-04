@@ -54,4 +54,8 @@ const submit = () => {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.formularios{
+    margin: auto;
+}
+</style>
