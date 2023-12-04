@@ -13,7 +13,6 @@
 import input_personalizable from './input_personalizable.vue';
 import boton_personalizable from './boton_personalizable.vue';
 import { existeUsario } from "../datos_controller";
-import { router } from '../router'
 
 let nombreUsuario = '';
 let password = '';

@@ -17,7 +17,6 @@ export function guardarChisme(idChismeG, idUsuarioG) {
     console.log(`Chisme guardado con éxito`);
 }
 
-//Esto podría seer modificado para usar el finIndex()
 export function obtenerChismesG(idUsuario) {
     let listaChismesG = reactive([]);
 

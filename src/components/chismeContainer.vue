@@ -119,12 +119,6 @@ const changeColor = (button) => {
       pass:
       break;
   }
-    if (likeColor.value == '#a7a7a7') {
-        likeColor.value='#dc487f';
-        
-    } else {
-        likeColor.value='#a7a7a7'
-    }
 }
 </script>
 <styled>

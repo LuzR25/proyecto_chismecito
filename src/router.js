@@ -11,6 +11,7 @@ import ChismesPublicados from './components/chismes_publicados.vue'
 import EscribirChisme from './components/input_escribir_chisme.vue'
 import ChismeRecientes from './components/mas_recientes.vue'
 import ChismeAntiguos from './components/mas_antiguos.vue'
+import ChismePopulares from './components/mas_populares.vue'
 
 /* export const router = createRouter({
   history: createWebHistory(),
@@ -32,7 +33,7 @@ export const router = createRouter({
       { path: '/inicio', name: 'chismes', component: ChismecitoContainer, children: [
         { path: '/masrecientes', name: 'recientes', component: ChismeRecientes },
         { path: '/masantiguos', name: 'antiguos', component: ChismeAntiguos },
-        { path: '/maspopulares', name: 'populares', component: ChismeAntiguos },] 
+        { path: '/maspopulares', name: 'populares', component: ChismePopulares },] 
       },
       { path: '/login', name: 'login', component: LoginFormulario },
       { path: '/signup', name: 'signUp', component: SignUpFormulario },
