@@ -7,7 +7,7 @@
         </div>
         <div id="advertencia">
             <!-- Poner aquí icono svg de advertencia -->
-            <img src="src/assets/advertencia.png" alt="Icono de advertencia">
+            <img src="../assets/advertencia.png" alt="Icono de advertencia">
             <br>
             <label>Evita:</label>
             <li>Escribir nombres (o al menos no uses los reales).</li>
