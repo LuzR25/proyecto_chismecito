@@ -25,7 +25,7 @@ export function crearChisme(chisme) {
 }
 
 //Esto podría seer modificado para usar el finIndex()
-export function obtenerChisme(idUsuario) {
+export function obtenerChismesCreados(idUsuario) {
     let listaChismesUsuario = reactive([]);
 
     for (let chismeAct = 0; chismeAct < listaChismes.length; chismeAct++) {
@@ -46,5 +46,15 @@ export function obtenerChisme(idUsuario) {
     } else {
         return listaChismes[index];
     } */
+}
+
+export function obtenerChisme(idChisme) {
+    let index = listaChismes.findIndex(chisme => chisme.id == idChisme);
+
+    if (index === -1) {
+        return false;
+    } else {
+        return listaChismes[index];
+    }
 }
 

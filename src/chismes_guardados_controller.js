@@ -25,26 +25,17 @@ export function guardarChisme(chisme) {
 }
 
 //Esto podría seer modificado para usar el finIndex()
-export function obtenerChisme(idUsuario) {
-    let listaChismesUsuario = reactive([]);
+export function obtenerChismesG(idUsuario) {
+    let listaChismesG = reactive([]);
 
-    for (let chismeAct = 0; chismeAct < listaChismes.length; chismeAct++) {
-        const chisme = listaChismes[chismeAct];
+    for (let chismeAct = 0; chismeAct < listaChismesGuardados.length; chismeAct++) {
+        const chisme = listaChismesGuardados[chismeAct];
         
         if (chisme.idUsuario == idUsuario) {
-            listaChismesUsuario.push(chisme); //No sé si esto funcione
+            listaChismesG.push(chisme); //No sé si esto funcione
         }
     }
 
-    return listaChismesUsuario;
-
-
-    /* let index = listaChismes.findIndex(chisme => chisme.idUsuario == idUsuario);
-
-    if (index === -1) {
-        return false;
-    } else {
-        return listaChismes[index];
-    } */
+    return listaChismesG;
 }
 

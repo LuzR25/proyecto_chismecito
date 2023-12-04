@@ -9,7 +9,7 @@
                     <p class="txt">Información de cuenta</p>
                 </div>
             </router-link>
-            <router-link :to="{ name: 'chismesG' }">
+            <router-link :to="{ name: 'chismesP' }">
             <!-- <button>Chismecitos publicados</button> -->
                 <div class="button" :style="{ backgroundColor: color2}" @click="changeColor(2);">
                     <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
@@ -94,6 +94,9 @@ const changeColor = (button) => {
 </script>
 
 <style scoped>
+
+
+
 #m{
     display: grid;
     grid-template-columns: 100%;
@@ -122,12 +125,14 @@ const changeColor = (button) => {
   padding: 2vh;
   margin-top: 2vh;
 }
+
 .iconButton{
   background-color: #eace7e;
   border-radius: 15px;
   float: left;
 }
 .txt{
+  color: #000;
   float: left;
   padding-left: 3px;
   padding-top: 5px;

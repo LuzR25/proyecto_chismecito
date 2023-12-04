@@ -9,9 +9,19 @@
 <script setup>
 import chismecard from './chismeCard.vue';
 import { obtenerChisme } from "../chismes_controller.js";
+import { obtenerChismesG } from "../chismes_guardados_controller";
 import { reactive } from 'vue';
 
+
 let listaChismesGuardados = reactive([]);
-listaChismesGuardados = obtenerChisme(localStorage.getItem("idUsuario"));
+let listaIdChismesG = reactive([]);
+
+listaIdChismesG = obtenerChismesG(localStorage.getItem("idUsuario"));
+
+listaIdChismesG.forEach(chismeInfo => {
+    listaChismesGuardados.push(obtenerChisme(chismeInfo.idChisme));
+});
+
+
 
 </script>
