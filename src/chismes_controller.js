@@ -37,15 +37,6 @@ export function obtenerChismesCreados(idUsuario) {
     }
 
     return listaChismesUsuario;
-
-
-    /* let index = listaChismes.findIndex(chisme => chisme.idUsuario == idUsuario);
-
-    if (index === -1) {
-        return false;
-    } else {
-        return listaChismes[index];
-    } */
 }
 
 export function obtenerChisme(idChisme) {
@@ -72,5 +63,20 @@ export function ordenarChismesAntiguos() {
     return copiaListaChismes.sort((a, b) => {
         return new Date(a.fechaPublicacion) - new Date(b.fechaPublicacion);
     });
+}
+
+export function ordenarChismesPorCorazones() {
+    let copiaListaChismes = [...listaChismes];
+    return copiaListaChismes.sort((a, b) => {
+        return b.corazones - a.corazones;
+    });
+}
+
+export function aumentarCorazon(idChisme) {
+    let index = listaChismes.findIndex(chisme => chisme.id == idChisme);
+
+    listaChismes[index].corazones += 1;
+
+    console.log(`Corazones: ${listaChismes[index].corazones}`)
 }
 

@@ -53,6 +53,7 @@ import { ref, defineProps } from 'vue';
 import { format } from "https://cdn.skypack.dev/date-fns@2.29.3";
 import { router } from '../router';
 import { guardarChisme } from "../chismes_guardados_controller.js";
+import { aumentarCorazon } from "../chismes_controller";
 
 const props = defineProps({
   idChisme: {
@@ -127,13 +128,45 @@ function likeadDisabled() {
   
 }
 
-const like = () => {
-    if (likeColor.value == '#a7a7a7') {
+/* const like = () => {
+    /* if (localStorage.getItem('sesionIniciada') === 'true') {
+        if (likeColor.value == '#a7a7a7') {
+            aumentarCorazon(props.idChisme);
+            likeColor.value='#dc487f';
+            
+        } else {
+            likeColor.value == '#a7a7a7'
+        }
+    } else {
+        likeColor.value == '#a7a7a7'
+        router.push({name: 'login'});
+    }
+ */
+
+
+   /* if (likeColor.value == '#a7a7a7') {
         likeColor.value='#dc487f';
         
     } else {
         likeColor.value='#a7a7a7'
     }
+} */
+
+const like = () => {
+    if (localStorage.getItem('sesionIniciada') === 'true') {
+        if (likeColor.value == '#a7a7a7') {
+            aumentarCorazon(props.idChisme);
+            //guardarChisme(props.idChisme, localStorage.getItem('idUsuario'));
+            likeColor.value='#dc487f';
+            
+        } else {
+            likeColor.value='#a7a7a7'
+        }
+    } else {
+        likeColor.value='#a7a7a7';
+        router.push({name: 'login'});
+    }
+    
 }
 
 /* like functions */
