@@ -9,7 +9,7 @@
                     <p class="txt">Información de cuenta</p>
                 </div>
             </router-link>
-            <router-link :to="{ name: 'cochinada' }">
+            <router-link :to="{ name: 'chismesG' }">
             <!-- <button>Chismecitos publicados</button> -->
                 <div class="button" :style="{ backgroundColor: color2}" @click="changeColor(2);">
                     <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
@@ -19,7 +19,7 @@
                 </div>
             </router-link>
         <!-- Luego hacemos que jale el que viene desde el login -->
-        <router-link :to="{ name: 'infoCuenta', params: { idUsuario: idUsuarioIS }}">
+        <router-link :to="{ name: 'chismesG'}">
                 <div class="button" :style="{ backgroundColor: color3}" @click="changeColor(3);">
                     <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
                         <path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Z"/>
@@ -27,7 +27,7 @@
                     <p class="txt">Chismecitos guardados</p>
                 </div>
             </router-link>
-            <router-link :to="{ name: 'cochinada' }">
+            <router-link :to="{ name: 'escribirC' }">
                 <div class="button" :style="{ backgroundColor: color4}" @click="changeColor(4);">
                     <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" width="30"  viewBox="0 -960 960 960" >
                         <path d="M360-600v-80h360v80H360Zm0 120v-80h360v80H360ZM560-80v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T903-300L683-80H560Zm263-224 37-39-37-37-38 38 38 38ZM240-80q-50 0-85-35t-35-85v-120h120v-560h600v361q-20-2-40.5 1.5T760-505v-295H320v480h240l-80 80v160H240Z"/>

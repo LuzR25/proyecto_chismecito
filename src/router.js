@@ -7,6 +7,8 @@ import InfoCuenta from './components/informacion_cuenta.vue'
 import Cuenta from './components/cuenta.vue'
 import CochinadaPrueba from './components/cochinada_prueba.vue'
 import ElegirHeader from './components/elegir_header.vue'
+import ChismesGuardados from './components/chismes_guardados.vue'
+import EscribirChisme from './components/input_escribir_chisme.vue'
 
 /* export const router = createRouter({
   history: createWebHistory(),
@@ -31,6 +33,8 @@ export const router = createRouter({
       { path: '/acercade', name: 'acercaDe', component: AcercaDe },
       { path: '/cuenta', name: 'cuenta', component: Cuenta, children: [
         { path: 'cochinada', name: 'cochinada', component: CochinadaPrueba },
+        { path: 'chismesguardados', name: 'chismesG', component: ChismesGuardados },
+        { path: 'escribirC', name: 'escribirC', component: EscribirChisme },
         { path: 'infoCuenta/:idUsuario', name: 'infoCuenta', component: InfoCuenta, props: true } ]
       } ] 
     },

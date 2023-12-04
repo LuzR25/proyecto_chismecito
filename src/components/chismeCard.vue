@@ -1,19 +1,12 @@
 <template>
     <div class="chismCard">
         <div class="head">
-            <p>Edad</p>
-            <p>Sexo</p>
-            <p>Fecha</p>
+            <p>{{ props.edad }}</p>
+            <p>{{ props.genero }}</p>
+            <p>{{ props.fechaPublicacion }}</p>
 
         </div>
-        <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nulla at convallis massa, ut dapibus velit. Curabitur libero nisi, suscipit ac ipsum id,
-            iaculis consectetur quam. Sed tempor turpis a pellentesque elementum. In ac facilisis velit.
-            Nulla facilisi. Maecenas sed laoreet augue. Nulla porttitor eros enim. Maecenas bibendum molestie
-            consectetur. Fusce tristique laoreet lorem ac sagittis. Maecenas efficitur nunc sapien, sit amet
-            ultrices odio tincidunt id. Aliquam vitae sollicitudin ipsum. Suspendisse eleifend est dolor, eget
-            tempus justo elementum non. Duis aliquet justo in turpis efficitur tincidunt. Suspendisse potenti.
-            Integer ut semper elit.
+        <p class="content">{{ props.contenido }}
         </p>
         <div class="buttons">
             <div>
@@ -56,7 +49,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
+
+const props = defineProps({
+  fechaPublicacion: {
+    type: String,
+    required: true
+  },
+  edad: {
+    type: String,
+    required: true
+  },
+  genero: {
+    type: String,
+    required: true
+  },
+  contenido: {
+    type: String,
+    required: true
+  }
+})
 
 const likedisabled1 = ref(false)
 const likedisabled2 = ref(false)

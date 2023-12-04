@@ -33,19 +33,23 @@
         </div>
         
       </div>
+
+      <div v-for="(item) in listaChismes">
+        <chismeCard :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
+          :genero="item.idUsuario" :edad="item.idUsuario">
+        </chismeCard>
+      </div>
+      <!-- <chismeCard></chismeCard>
       <chismeCard></chismeCard>
-      <chismeCard></chismeCard>
-      <chismeCard></chismeCard>
+      <chismeCard></chismeCard> -->
       <!-- a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br> -->
     </div>
 </template>
   
 <script setup>
 import { ref } from 'vue';
-  import chismeCard from './chismeCard.vue'; //! No sé a qué se debe este error, pero que se muera
-    import { defineProps } from 'vue';
-
-    const props=defineProps(['tituloNota', 'contenidoNota'])
+import chismeCard from './chismeCard.vue'; //! No sé a qué se debe este error, pero que se muera
+import { listaChismes } from "../chismes_controller";
 
 let color1 = ref("#ffffff");
 let color2 = ref("#00000000");
