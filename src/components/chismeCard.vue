@@ -52,8 +52,8 @@
 import { ref, defineProps } from 'vue';
 import { format } from "https://cdn.skypack.dev/date-fns@2.29.3";
 import { router } from '../router';
-import { guardarChisme } from "../chismes_guardados_controller.js";
-import { aumentarCorazon } from "../chismes_controller";
+import { guardarChisme, borrarChismeDeG } from "../chismes_guardados_controller.js";
+import { aumentarCorazon, quitarCorazon } from "../chismes_controller";
 
 const props = defineProps({
   idChisme: {
@@ -160,7 +160,8 @@ const like = () => {
             likeColor.value='#dc487f';
             
         } else {
-            likeColor.value='#a7a7a7'
+            quitarCorazon(props.idChisme);
+            likeColor.value='#a7a7a7';
         }
     } else {
         likeColor.value='#a7a7a7';
@@ -232,7 +233,9 @@ const save = () => {
             saveColor.value='#1d9bf0';
             
         } else {
+            borrarChismeDeG(props.idChisme, localStorage.getItem('idUsuario'));
             saveColor.value='#a7a7a7'
+            location.reload();
         }
     } else {
         saveColor.value='#a7a7a7';

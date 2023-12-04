@@ -17,6 +17,14 @@ export function guardarChisme(idChismeG, idUsuarioG) {
     console.log(`Chisme guardado con éxito`);
 }
 
+export function borrarChismeDeG(idChismeG, idUsuarioG) {
+    let index = listaChismesGuardados.findIndex(chismeG => chismeG.idChisme == idChismeG && chismeG.idUsuario == idUsuarioG);
+
+    listaChismesGuardados.splice(index, 1);
+
+    console.log(`Chisme eliminado de guardados con éxito`);
+}
+
 export function obtenerChismesG(idUsuario) {
     let listaChismesG = reactive([]);
 

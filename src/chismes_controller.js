@@ -80,3 +80,11 @@ export function aumentarCorazon(idChisme) {
     console.log(`Corazones: ${listaChismes[index].corazones}`)
 }
 
+export function quitarCorazon(idChisme) {
+    let index = listaChismes.findIndex(chisme => chisme.id == idChisme);
+
+    listaChismes[index].corazones -= 1;
+
+    console.log(`Corazones: ${listaChismes[index].corazones}`)
+}
+
