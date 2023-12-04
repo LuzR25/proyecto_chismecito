@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-//import boton_personalizable from './boton_personalizable.vue';
+import boton_personalizable from './boton_personalizable.vue';
 import { ref } from 'vue';
 import { defineProps } from 'vue';
 import { obtenerUsuario, modificarUsuario, eliminarUsuario } from "../datos_controller";
