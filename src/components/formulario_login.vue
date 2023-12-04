@@ -32,8 +32,13 @@ function submit() {
   if (existe == -1) {
     console.log(`La contraseña es incorrecta o el usuario no existe`);
   } else {
-    //! Debo preparar a este componente para recibir el id usuario
-    router.push({ name: 'infoCuenta', params: {idUsuario: existe} });
+    // Guardar la preferencia "idUsuario" con el valor del campo "existe"
+    localStorage.setItem("idUsuario", existe);
+    localStorage.setItem("sesionIniciada", true);
+
+    //router.push({ name: '/', params: {idUsuario: existe} });
+    //! El replace no está funcionando aquí como en cerrar sesión
+    router.replace({ name: 'infoCuenta', params: {idUsuario: existe} });
   }
 }
 </script>

@@ -6,8 +6,9 @@ import AcercaDe from './components/acerca_de.vue'
 import InfoCuenta from './components/informacion_cuenta.vue'
 import Cuenta from './components/cuenta.vue'
 import CochinadaPrueba from './components/cochinada_prueba.vue'
+import ElegirHeader from './components/elegir_header.vue'
 
-export const router = createRouter({
+/* export const router = createRouter({
   history: createWebHistory(),
   routes: [{ path: '/', name: 'home', component: ChismecitoContainer },
     { path: '/login', name: 'login', component: LoginFormulario },
@@ -16,18 +17,24 @@ export const router = createRouter({
     { path: '/cuenta', name: 'cuenta', component: Cuenta, children: [
       { path: 'cochinada', name: 'cochinada', component: CochinadaPrueba },
       { path: 'infoCuenta/:idUsuario', name: 'infoCuenta', component: InfoCuenta, props: true } ]
-    }, /* { 
-      path: '/products/:id', 
-      component: ProductDetailView, 
-      props: true 
-    } */
-    /* { path: '/cuenta/cochinada', name: 'cochinada', components: { cuenta: Cuenta, cochinada: CochinadaPrueba } },
-    { path: '/cuenta/infocuenta', name: 'infoCuentaV', components: { cuenta: Cuenta, infoCuenta: InfoCuenta } } */],
+    },
+  ],
+}) */
 
-  /* 
-  { path: '/cuenta/:usuario', name: 'cuenta', component: Cuenta },
-  { path: '/cuenta/:usuario/cochinada', name: 'cochinada', component: CochinadaPrueba },
-  { path: '/cuenta/:usuario/infocuenta', name: 'infoCuentas', component: InfoCuenta }], */
+export const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: '/', name: 'home', component: ElegirHeader, children: [
+      { path: '/home', name: 'chismes', component: ChismecitoContainer },
+      { path: '/login', name: 'login', component: LoginFormulario },
+      { path: '/signup', name: 'signUp', component: SignUpFormulario },
+      { path: '/acercade', name: 'acercaDe', component: AcercaDe },
+      { path: '/cuenta', name: 'cuenta', component: Cuenta, children: [
+        { path: 'cochinada', name: 'cochinada', component: CochinadaPrueba },
+        { path: 'infoCuenta/:idUsuario', name: 'infoCuenta', component: InfoCuenta, props: true } ]
+      } ] 
+    },
+  ],
 })
 
 //* Que no se me olvide pasar los parámetros usando props, y no jalando todo así 

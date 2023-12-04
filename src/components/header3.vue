@@ -10,7 +10,7 @@
           </div>
 
           <!-- <a href=""> -->
-          <router-link :to="{ name: 'home' }">
+          <router-link :to="{ name: 'chismes' }">
             <p style="text-align: right;">Inicio</p>
           </router-link>
 
@@ -53,9 +53,6 @@
   
 <script setup>
 
-    import { defineProps } from 'vue';
-
-    const props=defineProps(['tituloNota', 'contenidoNota'])
 </script>
 <styled>
     

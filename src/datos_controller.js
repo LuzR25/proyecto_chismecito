@@ -41,15 +41,22 @@ export function obtenerUsuario(idUsuario) {
 }
 
 export function modificarUsuario(usuarioMod) {
-    let index = listaUsuarios.findIndex(usuario => usuario.nomUsuario === nombreUsuario);
+    let index = listaUsuarios.findIndex(usuario => usuario.nomUsuario === usuarioMod.nomUsuario);
     listaUsuarios[index].fechaNacimiento = usuarioMod.fechaNacimiento;
     listaUsuarios[index].genero = usuarioMod.genero;
     listaUsuarios[index].nomUsuario = usuarioMod.nomUsuario;
     listaUsuarios[index].password = usuarioMod.password;
+
+    console.log(`Usuario modificado con éxito`);
+    console.log(listaUsuarios[index]);
 }
 
-export function eliminarUsuario(index) {
+export function eliminarUsuario(idUsuario) {
+    let index = listaUsuarios.findIndex(usuario => usuario.id == idUsuario);
     listaUsuarios.splice(index, 1);
+
+    console.log(`Usuario eliminado con éxito`);
+    console.log(listaUsuarios[index]);
 }
 
 export function existeUsario(nombreUsuario, password) {

@@ -35,10 +35,8 @@
 </template>
   
 <script setup>
-
-    import { defineProps } from 'vue';
-
-    const props=defineProps(['tituloNota', 'contenidoNota'])
+  
+  
 </script>
 <styled>
     

@@ -1,7 +1,7 @@
 <template>
     <div id="m">
         <div style="align-items: left; padding-left: 1vw; position: relative; align-items: self-start;">
-            <router-link :to="{ name: 'infoCuenta'/* , params: { usuario: 'luciernaga' } */}">
+            <router-link :to="{ name: 'infoCuenta', params: { idUsuario: idUsuarioIS }}">
                 <div class="button" :style="{ backgroundColor: color1}" @click="changeColor(1);">
                     <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
                         <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/>
@@ -19,12 +19,12 @@
                 </div>
             </router-link>
         <!-- Luego hacemos que jale el que viene desde el login -->
-            <router-link :to="{ name: 'infoCuenta'/* , params: { usuario: 'luciernaga' } */}"> 
+        <router-link :to="{ name: 'infoCuenta', params: { idUsuario: idUsuarioIS }}">
                 <div class="button" :style="{ backgroundColor: color3}" @click="changeColor(3);">
                     <svg class="iconButton" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" >
                         <path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Z"/>
                     </svg>
-                    <p class="txt">Chismesitos guardados</p>
+                    <p class="txt">Chismecitos guardados</p>
                 </div>
             </router-link>
             <router-link :to="{ name: 'cochinada' }">
@@ -47,6 +47,13 @@
 
 <script setup>
 import { ref } from 'vue';
+
+// Recuperar la preferencia "nombre"
+let idUsuarioIS = localStorage.getItem("idUsuario");
+
+//console.log(`Id del usuario en localStorage: ${idUsuarioIS}`)
+
+
 let color1 = ref("#ffffff");
 let color2 = ref("#00000000");
 let color3 = ref("#00000000");

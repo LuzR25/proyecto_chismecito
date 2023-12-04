@@ -9,23 +9,20 @@
             
           </div>
 
-          <a href="">
+          <router-link :to="{ name: 'chismes' }">
             <p style="text-align: right;">Inicio</p>
-          </a>
+          </router-link>
 
-          <a href="">
+          <router-link :to="{ name: 'acercaDe' }">
             <p>Acerca de</p>
-          </a>
+          </router-link>
 
-          
-          
-
-          <a href="">
+          <router-link :to="{ name: 'infoCuenta', params: { idUsuario: idUsuarioIS }}">
             <p style="text-align: left;">Cuenta</p>
-          </a>
+          </router-link>
 
           <a href="">
-            <p style="text-align: left;">Cerrar sesión</p>
+            <p style="text-align: left;"  @click="cerrarSesion" >Cerrar sesión</p>
           </a>
         </div>
         
@@ -37,10 +34,17 @@
 </template>
   
 <script setup>
+import { router } from "../router";
 
-    import { defineProps } from 'vue';
+function cerrarSesion() {
+  // Borrar datos de sesión
+  localStorage.setItem("idUsuario", -1);
+  localStorage.setItem("sesionIniciada", false);
+  router.replace({ name: 'chismes' }); //Debería borrar el historial de lo que hay
+}
 
-    const props=defineProps(['tituloNota', 'contenidoNota'])
+let idUsuarioIS = localStorage.getItem("idUsuario");
+  
 </script>
 <styled>
     

@@ -31,9 +31,9 @@
             </div>
         </div>
         <div id="botones">
-            <boton_personalizable id="modificar" texto="MODIFICAR DATOS DE CUENTA" color="#EBCE7D" :accion="enviarDatos">
+            <boton_personalizable id="modificar" texto="MODIFICAR DATOS DE CUENTA" color="#EBCE7D" :accion="modificarDatos">
             </boton_personalizable>
-            <boton_personalizable id="eliminar" texto="ELIMINAR CUENTA" color="#C61800"></boton_personalizable>
+            <boton_personalizable id="eliminar" texto="ELIMINAR CUENTA" color="#C61800" :accion="eliminarCuenta"></boton_personalizable>
         </div>
     </div>
 </template>
@@ -88,6 +88,27 @@ let localFechaNacimiento = usuario.fechaNacimiento; //'2002-11-25';
 let localGenero = usuario.genero; //'femenino';
 let localUsuario = usuario.nomUsuario; //'luciernaga';
 let localPassword = usuario.password; //'luna';
+
+function modificarDatos() {
+    const usuarioN = {
+        fechaNacimiento: localFechaNacimiento,
+        genero: localGenero,
+        nomUsuario: localUsuario,
+        password: localPassword,
+    };
+
+    modificarUsuario(usuarioN);
+    usuario = obtenerUsuario(props.idUsuario);
+
+    localFechaNacimiento = usuario.fechaNacimiento; //'2002-11-25';
+    localGenero = usuario.genero; //'femenino';
+    localUsuario = usuario.nomUsuario; //'luciernaga';
+    localPassword = usuario.password; //'luna';
+}
+
+function eliminarCuenta() {
+    eliminarUsuario(props.idUsuario);
+}
 
 const emit = defineEmits(['actualizar-datos']);
 
