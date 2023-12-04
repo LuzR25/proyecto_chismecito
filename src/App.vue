@@ -1,16 +1,19 @@
 <template>
   <!-- <formulario_login></formulario_login>
-  <formulario_singup></formulario_singup> -->
-  <informacion_cuenta :fecha-nacimiento="fechaNacimiento" :genero="genero" :usuario="usuario" :password="password" @actualizar-datos="manejarDatos"></informacion_cuenta>
+  <formulario_singup></formulario_singup>
+  <informacion_cuenta :fecha-nacimiento="fechaNacimiento" :genero="genero" :usuario="usuario" :password="password" @actualizar-datos="manejarDatos"></informacion_cuenta> -->
+  <input_escribir_chisme @guardar-chismecito="recibirChismecito"></input_escribir_chisme>
 </template>
 
 <script setup>
 import formulario_login from './components/formulario_login.vue';
 import formulario_singup from './components/formulario_singup.vue';
 import informacion_cuenta from './components/informacion_cuenta.vue';
+import input_escribir_chisme from './components/input_escribir_chisme.vue';
 
 import { ref } from 'vue';
 
+//PARA PRUEBA COMPONENTE: información_cuenta
 let fechaNacimiento = ref('2001-05-03');
 let genero = ref('masculino');
 let usuario = ref('Ibis');
@@ -29,6 +32,15 @@ const manejarDatos = ({ nuevaFechaNacimiento, nuevoGenero, nuevoUsuario, nuevoPa
   password.value = nuevoPassword;
   console.log(`FECHA nueva: ${fechaNacimiento.value}, GENERO nuevo: ${genero.value}, USUARIO nuevo: ${usuario.value}, PASSWORD nuevo: ${password.value}`);
 };
+// FIN PRUEBA COMPONENTE: información_cuenta
+
+//PARA PRUEBA COMPONENTE: información_cuenta
+let chismecito = ref('');
+const recibirChismecito = ({ elChismecito }) => {
+  chismecito.value = elChismecito;
+  console.log(`CHISMECITO: ${chismecito.value}`);
+}
+// FIN PRUEBA COMPONENTE: información_cuenta
 </script>
 
 <style scoped></style>
