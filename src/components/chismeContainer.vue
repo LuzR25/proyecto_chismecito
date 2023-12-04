@@ -36,7 +36,7 @@
 
       <div v-for="(item) in listaChismes">
         <chismeCard :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
-          :genero="item.idUsuario" :edad="item.idUsuario">
+          :genero="obtenerGenero(item.idUsuario)" :edad="item.idUsuario">
         </chismeCard>
       </div>
       <!-- <chismeCard></chismeCard>
@@ -47,9 +47,22 @@
 </template>
   
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import chismeCard from './chismeCard.vue'; //! No sé a qué se debe este error, pero que se muera
 import { listaChismes } from "../chismes_controller";
+import { obtenerUsuario } from "../datos_controller";
+
+function obtenerGenero(idUsuario) {
+    let usuario = obtenerUsuario(idUsuario);
+
+    if (usuario.genero === 'masculino') {
+        return 'Masculino';
+    } else if (usuario.genero === 'femenino') {
+        return 'Femenino';
+    } else {
+        return 'No binario';
+    }
+}
 
 let color1 = ref("#ffffff");
 let color2 = ref("#00000000");

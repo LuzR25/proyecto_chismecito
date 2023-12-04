@@ -1,7 +1,7 @@
 <template>
 <div v-for="(item) in listaChismesGuardados">
     <chismecard :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
-        :genero="obtenerGenero(item.idUsuario)" :edad="item.idUsuario">
+        :genero="obtenerGenero(item.idUsuario)" :edad="item.idUsuario" :guardado="true" >
     </chismecard>
 </div>
 </template>

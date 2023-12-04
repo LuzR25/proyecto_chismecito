@@ -47,22 +47,6 @@ import { obtenerUsuario, modificarUsuario, eliminarUsuario } from "../datos_cont
 //const props=defineProps(['fechaNacimiento', 'genero', 'usuario', 'password']);
 
 const props = defineProps({
-  /* fechaNacimiento: {
-    type: String,
-    required: false
-  },
-  genero: {
-    type: String,
-    required: false
-  },
-  usuario: {
-    type: String,
-    required: false
-  },
-  password: {
-    type: String,
-    required: false
-  }, */
   idUsuario: {
     type: Number,
     required: true

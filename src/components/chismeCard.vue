@@ -1,9 +1,9 @@
 <template>
     <div class="chismCard">
         <div class="head">
-            <p>{{ props.edad }}</p>
+            <p>{{ props.edad }} años</p>
             <p>{{ props.genero }}</p>
-            <p>{{ props.fechaPublicacion }}</p>
+            <p>{{ formatedDate }}</p>
 
         </div>
         <p class="content">{{ props.contenido }}
@@ -50,6 +50,7 @@
 
 <script setup>
 import { ref, defineProps } from 'vue';
+import { format } from "https://cdn.skypack.dev/date-fns@2.29.3";
 
 const props = defineProps({
   fechaPublicacion: {
@@ -57,7 +58,7 @@ const props = defineProps({
     required: true
   },
   edad: {
-    type: String,
+    type: Number,
     required: true
   },
   genero: {
@@ -67,8 +68,16 @@ const props = defineProps({
   contenido: {
     type: String,
     required: true
+  },
+  guardado: {
+    type: Boolean,
+    required: false
   }
 })
+
+
+let fecha = Date.parse(props.fechaPublicacion);
+let formatedDate = format(fecha, 'dd/MM/yyyy');
 
 const likedisabled1 = ref(false)
 const likedisabled2 = ref(false)
@@ -85,6 +94,10 @@ let reportColor = ref("#a7a7a7");
 const savedisabled1 = ref(false);
 const savedisabled2 = ref(false);
 let saveColor = ref("#a7a7a7");
+
+if (props.guardado === true) {
+    saveColor.value = "#1d9bf0"; 
+}
 
 
 /* like functions */

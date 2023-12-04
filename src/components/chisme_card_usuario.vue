@@ -1,7 +1,7 @@
 <template>
     <div class="chismCard">
         <div class="head">
-            <p>{{ props.fechaPublicacion }}</p>
+            <p>{{ formatedDate }}</p>
 
         </div>
         <p class="content">{{ props.contenido }}
@@ -48,6 +48,7 @@
 
 <script setup>
 import { ref, defineProps } from 'vue';
+import { format } from "https://cdn.skypack.dev/date-fns@2.29.3";
 
 const props = defineProps({
   fechaPublicacion: {
@@ -58,7 +59,12 @@ const props = defineProps({
     type: String,
     required: true
   }
-})
+});
+
+let fecha = Date.parse(props.fechaPublicacion);
+let formatedDate = format(fecha, 'dd/MM/yyyy');
+
+
 
 const likedisabled1 = ref(false)
 const likedisabled2 = ref(false)

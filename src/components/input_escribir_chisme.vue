@@ -3,7 +3,7 @@
         <div id="acciones">
             <label>Escribe tu chismecito:</label>
             <textarea class="inputDatos" v-model="chismecito"></textarea>
-            <boton_personalizable id="boton" texto="CHISMEAR" color="#EBCE7D" :accion="enviarChismecito"></boton_personalizable>
+            <boton_personalizable id="boton" texto="CHISMEAR" color="#EBCE7D" :accion="guardarChisme"></boton_personalizable>
         </div>
         <div id="advertencia">
             <!-- Poner aquí icono svg de advertencia -->
@@ -18,9 +18,34 @@
 
 <script setup>
 import boton_personalizable from './boton_personalizable.vue';
+import { crearChisme } from "../chismes_controller";
 import { ref } from 'vue';
 
 let chismecito = ref('');
+
+
+function obtenerFechaActual() {
+ 
+ const date = new Date();          
+ const formatear = ("0" + date.getDate()).slice(-2) + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" +
+                   date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":"
+                   + ("0" + date.getSeconds()).slice(-2);   
+ // Mostramos la fecha y hora en la consola                                   
+ console.log(formatear); 
+ 
+ return formatear; 
+
+}
+
+function guardarChisme() {
+    const chisme = {
+        fechaPublicacion: obtenerFechaActual(),
+        contenido: chismecito.value,
+        idUsuario: localStorage.getItem('idUsuario')
+    };
+
+    crearChisme(chisme);
+}
 
 const emit = defineEmits(['guardar-chismecito']);
 
