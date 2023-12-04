@@ -30,6 +30,7 @@ button {
   border-radius: 50px;
   width: 47.5%;
   padding: 1% 3%;
+  cursor: pointer;
 }
 </style>
   

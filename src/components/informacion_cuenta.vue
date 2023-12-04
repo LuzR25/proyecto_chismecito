@@ -74,11 +74,15 @@ let localPassword = usuario.password; //'luna';
 
 function modificarDatos() {
     const usuarioN = {
+        idUsuario: localStorage.getItem('idUsuario'),
         fechaNacimiento: localFechaNacimiento,
         genero: localGenero,
         nomUsuario: localUsuario,
         password: localPassword,
     };
+
+    console.log(`El usuario con modificaciones`);
+    console.log(usuarioN);
 
     modificarUsuario(usuarioN);
     usuario = obtenerUsuario(props.idUsuario);
@@ -94,19 +98,8 @@ function eliminarCuenta() {
     // Borrar datos de sesión
     localStorage.setItem("idUsuario", -1);
     localStorage.setItem("sesionIniciada", false);
-    router.replace({ name: 'chismes' });
+    router.push({ name: 'recientes' });
 }
-
-const emit = defineEmits(['actualizar-datos']);
-
-const enviarDatos = () => {
-  emit('actualizar-datos', {
-    nuevaFechaNacimiento: localFechaNacimiento.value,
-    nuevoGenero: localGenero.value,
-    nuevoUsuario: localUsuario.value,
-    nuevoPassword: localPassword.value,
-  });
-};
 
 </script>
 

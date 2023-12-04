@@ -41,7 +41,7 @@ export function obtenerUsuario(idUsuario) {
 }
 
 export function modificarUsuario(usuarioMod) {
-    let index = listaUsuarios.findIndex(usuario => usuario.nomUsuario === usuarioMod.nomUsuario);
+    let index = listaUsuarios.findIndex(usuario => usuario.id == usuarioMod.idUsuario);
     listaUsuarios[index].fechaNacimiento = usuarioMod.fechaNacimiento;
     listaUsuarios[index].genero = usuarioMod.genero;
     listaUsuarios[index].nomUsuario = usuarioMod.nomUsuario;

@@ -11,10 +11,6 @@
 </template>
 
 <script setup>
-/* import header3 from './components/header3.vue';
-import header4 from './components/header4.vue';
-
-let sesionIniciada = localStorage.getItem("sesionIniciada"); */
 </script>
 
 <style scoped></style>

@@ -47,6 +47,3 @@ export const router = createRouter({
     },
   ],
 })
-
-//* Que no se me olvide pasar los parámetros usando props, y no jalando todo así 
-//* pedorro directo de las rutas

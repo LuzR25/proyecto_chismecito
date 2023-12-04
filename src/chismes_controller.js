@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 
-let idC = 6;
+let idC = 7;
 
 //* Funciones para el usuario
 /* idChisme, idUsuario, fechaPublicacion, corazones, contenido, reportes */
@@ -11,6 +11,7 @@ export let listaChismes = reactive([
     { id: 3, idUsuario: 2, fechaPublicacion: '2023-11-28', contenido: "Estaba en un avión cuando vi a un hombre que estaba leyendo un libro sobre cómo ser un buen padre. El hombre se sentó a mi lado y me preguntó si quería saber lo que estaba leyendo. Le dije que sí, y el hombre me explicó que el libro le estaba enseñando a ser un buen padre. Le pregunté si tenía hijos, y el hombre me dijo que no, pero que estaba practicando por si acaso.", corazones: 5 },
     { id: 4, idUsuario: 3, fechaPublicacion: '2023-11-29', contenido: "Estaba en una fiesta cuando vi a un hombre que estaba bailando con una silla. El hombre estaba bailando muy bien, y la silla parecía estar disfrutando de la fiesta.", corazones: 0 },
     { id: 5, idUsuario: 1, fechaPublicacion: '2023-11-23', contenido: "Oí a unos empleados hablando el otro día, y estaban hablando de la nueva secretaria que ha empezado a trabajar en la empresa. Parece que es muy guapa, y que está empezando a causar problemas. El otro día, el director de la empresa la encontró en su oficina, besándose con su marido. El director está muy enfadado, y no sabe qué hacer.", corazones: 12},
+    { id: 6, idUsuario: 0, fechaPublicacion: '2023-11-02', contenido: "Algo sobre estar enfadado", corazones: 1},
 ]);
 
 export function crearChisme(chisme) {
@@ -82,7 +83,6 @@ export function aumentarCorazon(idChisme) {
 
 export function quitarCorazon(idChisme) {
     let index = listaChismes.findIndex(chisme => chisme.id == idChisme);
-
     listaChismes[index].corazones -= 1;
 
     console.log(`Corazones: ${listaChismes[index].corazones}`)

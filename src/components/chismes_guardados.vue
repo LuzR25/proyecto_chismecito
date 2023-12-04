@@ -1,6 +1,6 @@
 <template>
 <div v-for="(item) in listaChismesGuardados">
-    <chismecard :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
+    <chismecard :idChisme="item.id" :fechaPublicacion="item.fechaPublicacion" :contenido="item.contenido" 
         :genero="obtenerGenero(item.idUsuario)" :edad="obtenerEdad(item.idUsuario)" :guardado="true" >
     </chismecard>
 </div>

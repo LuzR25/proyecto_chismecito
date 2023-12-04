@@ -52,6 +52,7 @@
 import { ref, defineProps } from 'vue';
 import { format } from "https://cdn.skypack.dev/date-fns@2.29.3";
 import { router } from '../router';
+import { guardarChismeLiked, quitarLiked } from "../chismes_liked_controller.js";
 import { guardarChisme, borrarChismeDeG } from "../chismes_guardados_controller.js";
 import { aumentarCorazon, quitarCorazon } from "../chismes_controller";
 
@@ -79,6 +80,10 @@ const props = defineProps({
   guardado: {
     type: Boolean,
     required: false
+  },
+  liked: {
+    type: Boolean,
+    required: false
   }
 })
 
@@ -104,6 +109,10 @@ let saveColor = ref("#a7a7a7");
 
 if (props.guardado === true) {
     saveColor.value = "#ff4c2d"; 
+}
+
+if (props.liked === true) {
+    likeColor.value='#ebce7d';
 }
 
 
@@ -155,11 +164,13 @@ function likeadDisabled() {
 const like = () => {
     if (localStorage.getItem('sesionIniciada') === 'true') {
         if (likeColor.value == '#a7a7a7') {
+            guardarChismeLiked(props.idChisme, localStorage.getItem('idUsuario'));
             aumentarCorazon(props.idChisme);
             //guardarChisme(props.idChisme, localStorage.getItem('idUsuario'));
             likeColor.value='#ebce7d';
             
         } else {
+            quitarLiked(props.idChisme, localStorage.getItem('idUsuario'))
             quitarCorazon(props.idChisme);
             likeColor.value='#a7a7a7';
         }
@@ -235,7 +246,9 @@ const save = () => {
         } else {
             borrarChismeDeG(props.idChisme, localStorage.getItem('idUsuario'));
             saveColor.value='#a7a7a7'
-            location.reload();
+            //router.replace({name: 'chismesP'})
+            //router.replace({name: 'chismesG'})
+            
         }
     } else {
         saveColor.value='#a7a7a7';
