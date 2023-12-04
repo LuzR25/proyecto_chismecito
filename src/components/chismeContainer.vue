@@ -3,9 +3,9 @@
       <!-- <img src="../assets/bckgrndColor.jpg"> -->
       <div id="HD">
         
-        <p style="text-align: right; font-size: 3vw;">A</p>
+        <p style="text-align: right; font-size: 3vw; color: white;">A</p>
         <img id="hdp" src="../assets/Humpty_Dumpty.webp">
-        <p style="text-align: left; font-size: 3vw;">chismesito</p>
+        <p style="text-align: left; font-size: 3vw; color: white;">chismesito</p>
         <img id="rayaHumpty" src="../assets/vector.png" style="text-align: left; position: absolute; font-size: 3vw; bottom: -6%; transform: rotate(180deg); left: 15px;">
       </div>
       

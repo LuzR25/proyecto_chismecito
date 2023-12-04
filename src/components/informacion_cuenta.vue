@@ -40,11 +40,10 @@
 
 <script setup>
 import boton_personalizable from './boton_personalizable.vue';
+import { router } from "../router";
 import { ref } from 'vue';
 import { defineProps } from 'vue';
 import { obtenerUsuario, modificarUsuario, eliminarUsuario } from "../datos_controller";
-
-//const props=defineProps(['fechaNacimiento', 'genero', 'usuario', 'password']);
 
 const props = defineProps({
   idUsuario: {
@@ -92,6 +91,10 @@ function modificarDatos() {
 
 function eliminarCuenta() {
     eliminarUsuario(props.idUsuario);
+    // Borrar datos de sesión
+    localStorage.setItem("idUsuario", -1);
+    localStorage.setItem("sesionIniciada", false);
+    router.replace({ name: 'chismes' });
 }
 
 const emit = defineEmits(['actualizar-datos']);

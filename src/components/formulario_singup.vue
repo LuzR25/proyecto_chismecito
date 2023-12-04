@@ -19,6 +19,7 @@
 <script setup>
 import input_personalizable from './input_personalizable.vue';
 import boton_personalizable from './boton_personalizable.vue';
+import { router } from "../router";
 import { crearUsuario } from "../datos_controller";
 //import { crearUsuario } from '../db_controller';
 
@@ -40,11 +41,13 @@ const submit = () => {
 
     crearUsuario(usuario);
 
-    fechaNacimiento; //* No sé si esto haga algo, la verdad
+    fechaNacimiento = ""; //* No sé si esto haga algo, la verdad
     genero = "";
     nombreUsuario = "";
     password = "";
     confirmacionPassword = "";
+
+    router.push({name: 'login'});
     
     //idUsuario++;
 };
