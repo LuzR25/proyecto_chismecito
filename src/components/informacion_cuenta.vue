@@ -125,8 +125,11 @@ const enviarDatos = () => {
 
 <style scoped>
 #componenteVerInf {
-    margin: auto;
     width: fit-content;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
 }
 
 .contenedorInf {
