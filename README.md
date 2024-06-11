@@ -6,7 +6,7 @@ El sitio web fue desarrollado como proyecto final de la asignatura Fundamentos d
 
 ## Diseño
 
-El diseño del sitio web que fue creado y utilizado como guía durante el proceso de programación se encuentra en Figma en el siguiente enlace: [Diseño](https://www.figma.com/board/9GKVAKnnR7VILAFdDjKanI/Diagram---chismecito.com?node-id=0-1&t=mqTS74ucq7zJK3em-1)).
+El diseño del sitio web que fue creado y utilizado como guía durante el proceso de programación se encuentra en Figma en el siguiente enlace: [Diseño](https://www.figma.com/board/9GKVAKnnR7VILAFdDjKanI/Diagram---chismecito.com?node-id=0-1&t=mqTS74ucq7zJK3em-1).
 
 ## Consideraciones
 
